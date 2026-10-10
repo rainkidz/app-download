@@ -1,11 +1,12 @@
 {
-  "versionCode": 1,
-  "versionName": "1.0.0",
+  "versionCode": 452,
+  "versionName": "4.5.2",
   "url": "https://github.com/rainkidz/app-download/releases/download/v1.0.0/app-release.apk",
-  "size": 24576000,
-  "checksum": "sha256:GANTI_DENGAN_CHECKSUM_ASLI",
+  "size": 60543364,
+  "checksum": "sha256:6d727da236bb3f22d449a1b9c12fe064a9f24fcf84e1fefc91d52e063ee90bc6",
   "changelog": [
-    "Rilis perdana aplikasi"
+    "Rilis perdana aplikasi (dropdesk v4.5.2)",
+    "Social media video downloader - YouTube, TikTok, Facebook, Instagram, Threads"
   ],
   "forceUpdateBelow": 0,
   "minSdk": 24,
