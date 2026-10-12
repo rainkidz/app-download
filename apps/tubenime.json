@@ -2,7 +2,7 @@
   "name": "Tubenime",
   "tagline": "Download videos from YouTube, TikTok, Facebook, Instagram & Threads.",
   "description": "Tubenime is a social media video downloader for Android. Paste any video link from YouTube, TikTok, Facebook, Instagram, or Threads, pick your preferred quality, and save it straight to your gallery. No account required, no ads, works offline once installed.",
-  "icon": "assets/icons/tubenime.svg",
+  "icon": "assets/icons/tubenime.png",
   "screenshots": ["assets/screens/tubenime-1.png", "assets/screens/tubenime-2.png", "assets/screens/tubenime-3.png"],
   "features": [
     "Supports YouTube, TikTok, Facebook, Instagram, Threads",

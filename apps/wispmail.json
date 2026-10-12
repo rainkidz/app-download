@@ -2,7 +2,7 @@
   "name": "Wispmail",
   "tagline": "Temporary email (temp mail) — receive one-time emails without signing up.",
   "description": "Wispmail gives you an instant disposable email address in seconds. Use it to sign up for services, verify accounts, or avoid spam in your real inbox. Emails auto-expire, no registration needed, and everything stays on your device.",
-  "icon": "assets/icons/wispmail.svg",
+  "icon": "assets/icons/wispmail.png",
   "screenshots": ["assets/screens/wispmail-1.png", "assets/screens/wispmail-2.png", "assets/screens/wispmail-3.png"],
   "features": [
     "Instant disposable email address",
