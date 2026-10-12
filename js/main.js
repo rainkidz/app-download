@@ -8,7 +8,7 @@ function formatDate(dateStr) {
   if (!dateStr) return "-";
   const d = new Date(dateStr);
   if (Number.isNaN(d.getTime())) return "-";
-  return d.toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" });
+  return d.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
 }
 
 function createCard(app) {
@@ -21,7 +21,7 @@ function createCard(app) {
 
   card.innerHTML = `
     <div class="app-card-header">
-      <img class="app-icon" src="${escapeAttr(app.icon)}" alt="Ikon ${escapeAttr(app.name)}" width="64" height="64"
+      <img class="app-icon" src="${escapeAttr(app.icon)}" alt="${escapeAttr(app.name)} icon" width="64" height="64"
            onerror="this.src='assets/icon.svg'">
       <div class="app-card-title">
         <h2>${escapeHtml(app.name)}</h2>
@@ -37,7 +37,7 @@ function createCard(app) {
     <a class="btn btn-primary btn-block" href="${escapeAttr(app.url)}">Download APK</a>
     ${changelogItems ? `
     <details class="changelog">
-      <summary>Catatan rilis</summary>
+      <summary>Release notes</summary>
       <ul>${changelogItems}</ul>
     </details>` : ""}
   `;
@@ -78,10 +78,10 @@ async function loadApps() {
     });
 
     if (count === 0) {
-      grid.innerHTML = '<p class="loading">Belum ada aplikasi.</p>';
+      grid.innerHTML = '<p class="loading">No apps available.</p>';
     }
   } catch (err) {
-    grid.innerHTML = '<p class="loading">Gagal memuat daftar aplikasi. Muat ulang halaman.</p>';
+    grid.innerHTML = '<p class="loading">Failed to load app list. Reload the page.</p>';
   }
 }
 

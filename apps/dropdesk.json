@@ -1,7 +1,7 @@
 {
   "name": "Dropdesk",
-  "tagline": "Download video dari YouTube, TikTok, Facebook, Instagram & Threads.",
-  "description": "Downloader video media sosial — tempel link, pilih kualitas, simpan ke galeri.",
+  "tagline": "Download videos from YouTube, TikTok, Facebook, Instagram & Threads.",
+  "description": "Social media video downloader — paste a link, choose quality, save to gallery.",
   "icon": "assets/icons/dropdesk.svg",
   "versionCode": 452,
   "versionName": "4.5.2",
@@ -9,8 +9,8 @@
   "size": 60543364,
   "checksum": "sha256:6d727da236bb3f22d449a1b9c12fe064a9f24fcf84e1fefc91d52e063ee90bc6",
   "changelog": [
-    "Rilis perdana di katalog",
-    "Dukungan YouTube, TikTok, Facebook, Instagram, Threads"
+    "First release in the catalog",
+    "Supports YouTube, TikTok, Facebook, Instagram, Threads"
   ],
   "forceUpdateBelow": 0,
   "minSdk": 24,
