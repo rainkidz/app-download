@@ -1,9 +1,9 @@
 {
-  "name": "Dropdesk",
+  "name": "Tubenime",
   "tagline": "Download videos from YouTube, TikTok, Facebook, Instagram & Threads.",
-  "description": "Dropdesk is a social media video downloader for Android. Paste any video link from YouTube, TikTok, Facebook, Instagram, or Threads, pick your preferred quality, and save it straight to your gallery. No account required, no ads, works offline once installed.",
-  "icon": "assets/icons/dropdesk.svg",
-  "screenshots": ["assets/screens/dropdesk-1.png", "assets/screens/dropdesk-2.png", "assets/screens/dropdesk-3.png"],
+  "description": "Tubenime is a social media video downloader for Android. Paste any video link from YouTube, TikTok, Facebook, Instagram, or Threads, pick your preferred quality, and save it straight to your gallery. No account required, no ads, works offline once installed.",
+  "icon": "assets/icons/tubenime.svg",
+  "screenshots": ["assets/screens/tubenime-1.png", "assets/screens/tubenime-2.png", "assets/screens/tubenime-3.png"],
   "features": [
     "Supports YouTube, TikTok, Facebook, Instagram, Threads",
     "Multiple video qualities (up to Full HD where available)",
@@ -14,7 +14,7 @@
   "sourceUrl": "https://github.com/rainkidz/dropdesk",
   "playStoreUrl": "",
   "repoSlug": "rainkidz/dropdesk",
-  "package": "com.rainkidz.dropdesk",
+  "package": "com.rainkidz.tubenime",
   "versionCode": 452,
   "versionName": "4.5.2",
   "url": "https://github.com/rainkidz/app-download/releases/download/v1.0.0/app-release.apk",

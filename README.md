@@ -10,14 +10,14 @@ Landing page katalog + distribusi APK gratis via GitHub Pages dan GitHub Release
 
 ```
 index.html              # Katalog (daftar app otomatis dari apps/)
-app.html                # Detail page (?slug=dropdesk) — QR, checksum, versi lama
+app.html                # Detail page (?slug=tubenime) — QR, checksum, versi lama
 faq.html                # FAQ umum
 css/style.css
 js/main.js              # Render kartu katalog
 js/app.js               # Render detail page
 js/qr.js                # QR generator (CDN qrcode-generator)
-apps/index.json         # Daftar slug app: ["dropdesk", "wispmail"]
-apps/dropdesk.json      # Metadata versi Dropdesk
+apps/index.json         # Daftar slug app: ["tubenime", "wispmail"]
+apps/tubenime.json      # Metadata versi Tubenime
 apps/wispmail.json      # Metadata versi Wispmail
 assets/icons/           # Ikon app (ganti dengan PNG asli)
 assets/screens/         # Screenshot app (opsional, tampil di detail page)
@@ -62,7 +62,7 @@ Aktifkan Pages sekali saja: **Settings → Pages → Branch `main` / `/ (root)` 
 }
 ```
 
-2. Tambah slug-nya ke `apps/index.json`: `["dropdesk", "wispmail", "myapp"]`
+2. Tambah slug-nya ke `apps/index.json`: `["tubenime", "wispmail", "myapp"]`
 3. Push — kartu app otomatis muncul di katalog.
 
 ### Catatan field
