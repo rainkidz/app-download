@@ -1,8 +1,20 @@
 {
   "name": "Dropdesk",
   "tagline": "Download videos from YouTube, TikTok, Facebook, Instagram & Threads.",
-  "description": "Social media video downloader — paste a link, choose quality, save to gallery.",
+  "description": "Dropdesk is a social media video downloader for Android. Paste any video link from YouTube, TikTok, Facebook, Instagram, or Threads, pick your preferred quality, and save it straight to your gallery. No account required, no ads, works offline once installed.",
   "icon": "assets/icons/dropdesk.svg",
+  "screenshots": ["assets/screens/dropdesk-1.png", "assets/screens/dropdesk-2.png", "assets/screens/dropdesk-3.png"],
+  "features": [
+    "Supports YouTube, TikTok, Facebook, Instagram, Threads",
+    "Multiple video qualities (up to Full HD where available)",
+    "Fast downloads with pause & resume",
+    "No account, no sign-in required",
+    "Lightweight, ad-free interface"
+  ],
+  "sourceUrl": "https://github.com/rainkidz/dropdesk",
+  "playStoreUrl": "",
+  "repoSlug": "rainkidz/dropdesk",
+  "package": "com.rainkidz.dropdesk",
   "versionCode": 452,
   "versionName": "4.5.2",
   "url": "https://github.com/rainkidz/app-download/releases/download/v1.0.0/app-release.apk",

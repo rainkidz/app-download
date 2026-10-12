@@ -10,12 +10,17 @@ Landing page katalog + distribusi APK gratis via GitHub Pages dan GitHub Release
 
 ```
 index.html              # Katalog (daftar app otomatis dari apps/)
+app.html                # Detail page (?slug=dropdesk) — QR, checksum, versi lama
+faq.html                # FAQ umum
 css/style.css
-js/main.js              # Render kartu app dari JSON
+js/main.js              # Render kartu katalog
+js/app.js               # Render detail page
+js/qr.js                # QR generator (CDN qrcode-generator)
 apps/index.json         # Daftar slug app: ["dropdesk", "wispmail"]
 apps/dropdesk.json      # Metadata versi Dropdesk
 apps/wispmail.json      # Metadata versi Wispmail
 assets/icons/           # Ikon app (ganti dengan PNG asli)
+assets/screens/         # Screenshot app (opsional, tampil di detail page)
 android-update-checker/ # Contoh kode cek update (Kotlin)
 ```
 
@@ -36,14 +41,21 @@ Aktifkan Pages sekali saja: **Settings → Pages → Branch `main` / `/ (root)` 
 ```json
 {
   "name": "My App",
-  "tagline": "Deskripsi singkat aplikasi.",
+  "tagline": "One-liner for the catalog card.",
+  "description": "Longer description shown on the app detail page.",
   "icon": "assets/icons/myapp.svg",
+  "screenshots": ["assets/screens/myapp-1.png"],
+  "features": ["Feature 1", "Feature 2"],
+  "sourceUrl": "https://github.com/rainkidz/myapp",
+  "playStoreUrl": "",
+  "repoSlug": "rainkidz/myapp",
+  "package": "com.rainkidz.myapp",
   "versionCode": 1,
   "versionName": "1.0.0",
   "url": "https://github.com/rainkidz/app-download/releases/download/v1.0.0/myapp.apk",
   "size": 12345678,
   "checksum": "sha256:...",
-  "changelog": ["Rilis perdana"],
+  "changelog": ["First release"],
   "forceUpdateBelow": 0,
   "minSdk": 24,
   "releasedAt": "2026-10-12"
@@ -52,6 +64,18 @@ Aktifkan Pages sekali saja: **Settings → Pages → Branch `main` / `/ (root)` 
 
 2. Tambah slug-nya ke `apps/index.json`: `["dropdesk", "wispmail", "myapp"]`
 3. Push — kartu app otomatis muncul di katalog.
+
+### Catatan field
+
+| Field | Fungsi |
+|---|---|
+| `screenshots[]` | Galeri screenshot di detail page (taruh PNG di `assets/screens/`) |
+| `features[]` | Daftar fitur (3–5 poin) di detail page |
+| `sourceUrl` | Tombol "Source code" di detail page |
+| `playStoreUrl` | Tombol "Google Play" (kosongkan `""` kalau belum ada) |
+| `repoSlug` | Untuk fetch daftar versi lama dari GitHub Releases API. **Repo private tidak akan tampil** (API publik butuh auth) — nanti fallback link "All releases". |
+| `package` | Nama package Android, ditampilkan di detail page |
+| `checksum` | SHA-256 APK, ditampilkan di UI "verify" untuk verifikasi integritas |
 
 ## 3. Upload APK & Rilis Versi Baru
 

@@ -11,7 +11,7 @@ function formatDate(dateStr) {
   return d.toLocaleDateString("en-US", { day: "numeric", month: "short", year: "numeric" });
 }
 
-function createCard(app) {
+function createCard(app, slug) {
   const card = document.createElement("article");
   card.className = "app-card";
 
@@ -34,7 +34,10 @@ function createCard(app) {
       <span class="dot">•</span>
       <span>${formatDate(app.releasedAt)}</span>
     </p>
-    <a class="btn btn-primary btn-block" href="${escapeAttr(app.url)}">Download APK</a>
+    <div class="card-actions">
+      <a class="btn btn-primary" href="${escapeAttr(app.url)}">Download APK</a>
+      <a class="btn btn-secondary" href="app.html?slug=${encodeURIComponent(slug)}">Details</a>
+    </div>
     ${changelogItems ? `
     <details class="changelog">
       <summary>Release notes</summary>
@@ -70,9 +73,9 @@ async function loadApps() {
 
     grid.innerHTML = "";
     let count = 0;
-    apps.forEach(result => {
+    apps.forEach((result, i) => {
       if (result.status === "fulfilled" && result.value && result.value.url) {
-        grid.appendChild(createCard(result.value));
+        grid.appendChild(createCard(result.value, slugs[i]));
         count++;
       }
     });

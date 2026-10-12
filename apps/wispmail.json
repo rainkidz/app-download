@@ -1,8 +1,20 @@
 {
   "name": "Wispmail",
   "tagline": "Temporary email (temp mail) — receive one-time emails without signing up.",
-  "description": "Instant disposable email for signups, verification, or avoiding spam.",
+  "description": "Wispmail gives you an instant disposable email address in seconds. Use it to sign up for services, verify accounts, or avoid spam in your real inbox. Emails auto-expire, no registration needed, and everything stays on your device.",
   "icon": "assets/icons/wispmail.svg",
+  "screenshots": ["assets/screens/wispmail-1.png", "assets/screens/wispmail-2.png", "assets/screens/wispmail-3.png"],
+  "features": [
+    "Instant disposable email address",
+    "No sign-up or personal info required",
+    "Receive verification emails & codes",
+    "Auto-expiring inboxes",
+    "Clean, ad-free interface"
+  ],
+  "sourceUrl": "https://github.com/rainkidz/mail-temp",
+  "playStoreUrl": "",
+  "repoSlug": "rainkidz/mail-temp",
+  "package": "com.rainkidz.wispmail",
   "versionCode": 10103,
   "versionName": "1.1.3",
   "url": "https://github.com/rainkidz/app-download/releases/download/v1.1.3/Wispmail-v1.1.3.apk",
