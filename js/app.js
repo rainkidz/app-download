@@ -73,6 +73,7 @@ function oldVersionsHtml(releases, currentVersionName) {
 function renderDetail(app) {
   document.title = `${app.name} - rainkidz`;
   const root = document.getElementById("app-root");
+  const hasApk = !!app.url;
 
   const featuresHtml = (app.features || []).map(f =>
     `<li>${escapeHtml(f)}</li>`
@@ -98,23 +99,23 @@ function renderDetail(app) {
         <p class="app-tagline">${escapeHtml(app.tagline || "")}</p>
         <p class="app-meta">
           <span class="badge badge-accent">v${escapeHtml(app.versionName)}</span>
-          <span>${formatSize(app.size)}</span>
-          <span class="dot">•</span>
-          <span>${formatDate(app.releasedAt)}</span>
-          <span class="dot">•</span>
-          <span>Android ${app.minSdk ? "7.0+" : ""}</span>
+          ${app.size ? `<span>${formatSize(app.size)}</span><span class="dot">•</span>` : ""}
+          ${app.releasedAt ? `<span>${formatDate(app.releasedAt)}</span><span class="dot">•</span>` : ""}
+          ${app.minSdk ? `<span>Android ${app.minSdk === 24 ? "7.0+" : "API " + app.minSdk}</span>` : ""}
         </p>
         ${app.package ? `<p class="package-name">${escapeHtml(app.package)}</p>` : ""}
       </div>
     </section>
 
     <section class="download-panel">
+      ${hasApk ? `
       <a id="download-btn" class="btn btn-primary btn-lg" href="${escapeHtml(app.url)}">Download APK</a>
       <button id="qr-toggle" class="btn btn-secondary" type="button">Show QR</button>
       <div id="qr-box" class="qr-box" hidden></div>
-      <p class="qr-hint" id="qr-hint" hidden>Scan to download on your phone.</p>
+      <p class="qr-hint" id="qr-hint" hidden>Scan to download on your phone.</p>` : `
+      <a class="btn btn-primary btn-lg" href="${escapeHtml(app.playStoreUrl || "#")}" target="_blank" rel="noopener">Get it on Google Play</a>`}
 
-      ${app.checksum ? `
+      ${hasApk && app.checksum ? `
       <div class="verify-box">
         <div class="verify-label">SHA-256 fingerprint (verify after download)</div>
         <code class="verify-hash" title="${escapeHtml(app.checksum.replace(/^sha256:/i, ""))}">${escapeHtml(shortHash(app.checksum))}</code>
@@ -150,6 +151,7 @@ function renderDetail(app) {
       <ul class="changelog-list">${app.changelog.map(c => `<li>${escapeHtml(c)}</li>`).join("")}</ul>
     </section>` : ""}
 
+    ${hasApk ? `
     <section class="section section-alt">
       <h2>How to install</h2>
       <ol class="steps">
@@ -159,7 +161,16 @@ function renderDetail(app) {
         <li>Tap <strong>Install</strong>.</li>
       </ol>
       <p class="note">New versions appear here first. The app itself will notify you when an update is available.</p>
-    </section>
+    </section>` : `
+    <section class="section section-alt">
+      <h2>How to install</h2>
+      <ol class="steps">
+        <li>Tap <strong>Get it on Google Play</strong>.</li>
+        <li>Sign in with your Google account if prompted.</li>
+        <li>Tap <strong>Install</strong>.</li>
+      </ol>
+      <p class="note">This app is distributed via the Play Store and updates automatically.</p>
+    </section>`}
   `;
 
   document.getElementById("copy-hash")?.addEventListener("click", async (e) => {
@@ -177,7 +188,7 @@ function renderDetail(app) {
   const qrToggle = document.getElementById("qr-toggle");
   const qrHint = document.getElementById("qr-hint");
   let qrRendered = false;
-  qrToggle.addEventListener("click", () => {
+  qrToggle?.addEventListener("click", () => {
     if (!qrRendered) {
       window.QR.render(qrBox, app.url);
       qrRendered = true;

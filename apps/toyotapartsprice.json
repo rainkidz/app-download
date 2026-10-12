@@ -1,0 +1,31 @@
+{
+  "name": "Toyota Parts Price",
+  "tagline": "Fast access to genuine Toyota parts prices & data for the TASTI network.",
+  "description": "Toyota Parts Price (TPP) gives Toyota network users fast access to genuine parts prices and data: national price list, model codes, price simulation with discount & VAT, bulk estimates, bookmarks, and PDF export. Developed by ISTD, PT TASTI Anugerah Mandiri. Internal app — login with a registered account is required.",
+  "icon": "assets/icons/toyotapartsprice.png",
+  "screenshots": [],
+  "features": [
+    "Part Price search by part number or name, with national prices, model code & vehicle",
+    "Part details: model code, group & substitution chain",
+    "Price Simulation & Bulk Estimate with discount, VAT & PDF export",
+    "Simulation history & part bookmarks",
+    "Insert Model (admin) for model/vehicle corrections",
+    "Calendar, margin calculator, themes, English/Indonesia"
+  ],
+  "sourceUrl": "",
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=com.bip.partscatalogue",
+  "repoSlug": "",
+  "package": "com.bip.partscatalogue",
+  "versionName": "3.3.1",
+  "url": "",
+  "size": 0,
+  "changelog": [
+    "New Bulk Estimate menu: send many parts to Price Simulation at once",
+    "Catalog now shows Model and Vehicle columns",
+    "Cleaner phone layout: roomier Name column, slimmer search, paging always fits",
+    "Login with username or e-mail, auto-login with saved password",
+    "New app icon and splash screen"
+  ],
+  "forceUpdateBelow": 0,
+  "releasedAt": ""
+}

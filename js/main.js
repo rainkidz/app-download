@@ -15,6 +15,11 @@ function createCard(app, slug) {
   const card = document.createElement("article");
   card.className = "app-card";
 
+  const isPlayStore = !app.url && !!app.playStoreUrl;
+  const primaryHref = isPlayStore ? app.playStoreUrl : app.url;
+  const primaryLabel = isPlayStore ? "Google Play" : "Download APK";
+  const primaryTarget = isPlayStore ? ' target="_blank" rel="noopener"' : "";
+
   const changelogItems = (app.changelog || [])
     .map(item => `<li>${escapeHtml(item)}</li>`)
     .join("");
@@ -35,7 +40,7 @@ function createCard(app, slug) {
       <span>${formatDate(app.releasedAt)}</span>
     </p>
     <div class="card-actions">
-      <a class="btn btn-primary" href="${escapeAttr(app.url)}">Download APK</a>
+      <a class="btn btn-primary" href="${escapeAttr(primaryHref)}"${primaryTarget}>${primaryLabel}</a>
       <a class="btn btn-secondary" href="app.html?slug=${encodeURIComponent(slug)}">Details</a>
     </div>
     ${changelogItems ? `
@@ -74,7 +79,7 @@ async function loadApps() {
     grid.innerHTML = "";
     let count = 0;
     apps.forEach((result, i) => {
-      if (result.status === "fulfilled" && result.value && result.value.url) {
+      if (result.status === "fulfilled" && result.value && (result.value.url || result.value.playStoreUrl)) {
         grid.appendChild(createCard(result.value, slugs[i]));
         count++;
       }
