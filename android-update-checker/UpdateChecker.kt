@@ -33,7 +33,7 @@ data class UpdateInfo(
 object UpdateChecker {
 
     private const val VERSION_URL =
-        "https://rainkidz.github.io/app-download/version.json"
+        "https://rainkidz.github.io/app-download/apps/dropdesk.json"
 
     suspend fun fetchUpdate(currentVersionCode: Int): UpdateInfo? = withContext(Dispatchers.IO) {
         try {

@@ -1,0 +1,18 @@
+{
+  "name": "Wispmail",
+  "tagline": "Email sementara (temp mail) — terima email sekali pakai tanpa daftar.",
+  "description": "Buat alamat email instan untuk daftar service, verifikasi, atau menghindari spam.",
+  "icon": "assets/icons/wispmail.svg",
+  "versionCode": 10103,
+  "versionName": "1.1.3",
+  "url": "https://github.com/rainkidz/app-download/releases/download/v1.1.3/Wispmail-v1.1.3.apk",
+  "size": 14271655,
+  "checksum": "sha256:eef8feadb9fd98a3da6e5a770410b466f7fe411718e06b1aa433af48946d11d2",
+  "changelog": [
+    "Rilis perdana di katalog",
+    "Email sementara instan tanpa registrasi"
+  ],
+  "forceUpdateBelow": 0,
+  "minSdk": 24,
+  "releasedAt": "2026-10-10"
+}

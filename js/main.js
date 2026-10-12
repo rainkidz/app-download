@@ -1,14 +1,5 @@
-const FALLBACK_VERSION = {
-  versionCode: 1,
-  versionName: "1.0.0",
-  url: "https://github.com/rainkidz/app-download/releases/download/v1.0.0/app-release.apk",
-  size: 24576000,
-  changelog: ["Rilis perdana aplikasi"],
-  releasedAt: "2026-10-10"
-};
-
 function formatSize(bytes) {
-  if (!bytes || bytes <= 0) return "- MB";
+  if (!bytes || bytes <= 0) return "-";
   const mb = bytes / (1024 * 1024);
   return mb >= 1 ? `${mb.toFixed(1)} MB` : `${(bytes / 1024).toFixed(0)} KB`;
 }
@@ -20,47 +11,79 @@ function formatDate(dateStr) {
   return d.toLocaleDateString("id-ID", { day: "numeric", month: "short", year: "numeric" });
 }
 
-function render(v) {
-  const versionName = v.versionName || v.versionCode || "1.0.0";
-  document.getElementById("app-version").textContent = `Versi ${versionName}`;
-  document.getElementById("app-size").textContent = formatSize(v.size);
-  document.getElementById("app-updated").textContent = `Diperbarui ${formatDate(v.releasedAt)}`;
-  document.getElementById("changelog-version").textContent = versionName;
+function createCard(app) {
+  const card = document.createElement("article");
+  card.className = "app-card";
 
-  const list = document.getElementById("changelog-list");
-  list.innerHTML = "";
-  const items = Array.isArray(v.changelog) && v.changelog.length ? v.changelog : FALLBACK_VERSION.changelog;
-  items.forEach(item => {
-    const li = document.createElement("li");
-    li.textContent = item;
-    list.appendChild(li);
-  });
+  const changelogItems = (app.changelog || [])
+    .map(item => `<li>${escapeHtml(item)}</li>`)
+    .join("");
 
-  if (v.url) {
-    document.getElementById("download-btn").href = v.url;
-  }
-  document.getElementById("year").textContent = new Date().getFullYear();
+  card.innerHTML = `
+    <div class="app-card-header">
+      <img class="app-icon" src="${escapeAttr(app.icon)}" alt="Ikon ${escapeAttr(app.name)}" width="64" height="64"
+           onerror="this.src='assets/icon.svg'">
+      <div class="app-card-title">
+        <h2>${escapeHtml(app.name)}</h2>
+        <p class="app-version">v${escapeHtml(app.versionName)}</p>
+      </div>
+    </div>
+    <p class="app-tagline">${escapeHtml(app.tagline || "")}</p>
+    <p class="app-meta">
+      <span>${formatSize(app.size)}</span>
+      <span class="dot">•</span>
+      <span>${formatDate(app.releasedAt)}</span>
+    </p>
+    <a class="btn btn-primary btn-block" href="${escapeAttr(app.url)}">Download APK</a>
+    ${changelogItems ? `
+    <details class="changelog">
+      <summary>Catatan rilis</summary>
+      <ul>${changelogItems}</ul>
+    </details>` : ""}
+  `;
+  return card;
 }
 
-async function loadVersion() {
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+  }[c]));
+}
+
+function escapeAttr(s) {
+  return escapeHtml(s);
+}
+
+async function fetchJson(url) {
+  const res = await fetch(`${url}?t=${Date.now()}`, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  return res.json();
+}
+
+async function loadApps() {
+  const grid = document.getElementById("apps-grid");
   try {
-    const res = await fetch(`version.json?t=${Date.now()}`, { cache: "no-store" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    render(await res.json());
+    const slugs = await fetchJson("apps/index.json");
+    const apps = await Promise.allSettled(
+      slugs.map(slug => fetchJson(`apps/${slug}.json`))
+    );
+
+    grid.innerHTML = "";
+    let count = 0;
+    apps.forEach(result => {
+      if (result.status === "fulfilled" && result.value && result.value.url) {
+        grid.appendChild(createCard(result.value));
+        count++;
+      }
+    });
+
+    if (count === 0) {
+      grid.innerHTML = '<p class="loading">Belum ada aplikasi.</p>';
+    }
   } catch (err) {
-    render(FALLBACK_VERSION);
+    grid.innerHTML = '<p class="loading">Gagal memuat daftar aplikasi. Muat ulang halaman.</p>';
   }
 }
 
-document.getElementById("copy-link").addEventListener("click", async (e) => {
-  const btn = e.currentTarget;
-  try {
-    await navigator.clipboard.writeText(window.location.href.split("#")[0]);
-    btn.textContent = "Tersalin!";
-  } catch {
-    btn.textContent = window.location.href.split("#")[0];
-  }
-  setTimeout(() => (btn.textContent = "Copy Link"), 2000);
-});
-
-loadVersion();
+document.getElementById("year").textContent = new Date().getFullYear();
+loadApps();

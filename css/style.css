@@ -93,48 +93,92 @@ a:hover {
   background: radial-gradient(circle at 50% -20%, rgba(56, 189, 248, 0.15), transparent 60%);
 }
 
+.hero h1 {
+  font-size: 32px;
+}
+
+.hero-tagline {
+  margin: 8px 0 6px;
+  color: var(--text-muted);
+  font-size: 17px;
+}
+
+.cta-note {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.section {
+  padding: 40px 0;
+}
+
+.section-alt {
+  background: var(--bg-alt);
+}
+
+.section h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.loading {
+  color: var(--text-muted);
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 30px 0;
+}
+
 .app-card {
   display: flex;
-  align-items: center;
-  gap: 20px;
-  text-align: left;
+  flex-direction: column;
+  gap: 12px;
   padding: 24px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--surface);
 }
 
+.app-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
 .app-icon {
-  border-radius: 22px;
+  border-radius: 16px;
   background: var(--bg-alt);
   flex-shrink: 0;
 }
 
-.app-meta h1 {
-  font-size: 26px;
+.app-card-title h2 {
+  font-size: 20px;
+}
+
+.app-version {
+  color: var(--text-muted);
+  font-size: 14px;
 }
 
 .app-tagline {
   color: var(--text-muted);
-  margin: 4px 0 8px;
+  font-size: 14px;
+  flex-grow: 1;
 }
 
-.app-info {
-  font-size: 14px;
+.app-meta {
+  font-size: 13px;
   color: var(--text-muted);
 }
 
 .dot {
   margin: 0 6px;
   opacity: 0.6;
-}
-
-.cta {
-  margin-top: 28px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
 .btn {
@@ -164,32 +208,12 @@ a:hover {
   border-color: transparent;
 }
 
-.btn-lg {
-  padding: 14px 32px;
-  font-size: 16px;
+.btn-block {
+  width: 100%;
 }
 
 .btn-ghost {
   background: transparent;
-}
-
-.cta-note {
-  margin-top: 14px;
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-.section {
-  padding: 48px 0;
-}
-
-.section-alt {
-  background: var(--bg-alt);
-}
-
-.section h2 {
-  font-size: 22px;
-  margin-bottom: 20px;
 }
 
 .steps {
@@ -208,62 +232,24 @@ a:hover {
   font-size: 14px;
 }
 
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px;
-}
-
-.feature {
-  padding: 20px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.feature-icon {
-  font-size: 26px;
-  margin-bottom: 8px;
-}
-
-.feature h3 {
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.feature p {
+.changelog summary {
+  cursor: pointer;
   font-size: 14px;
+  font-weight: 600;
   color: var(--text-muted);
 }
 
-.screenshots {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
+.changelog summary:hover {
+  color: var(--text);
 }
 
-.screenshots img {
-  width: 100%;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-}
-
-.changelog-box {
-  padding: 20px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.changelog-box h3 {
-  margin-bottom: 10px;
-}
-
-.changelog-box ul {
+.changelog ul {
+  margin-top: 8px;
   padding-left: 20px;
   display: grid;
   gap: 4px;
   color: var(--text-muted);
+  font-size: 14px;
 }
 
 .site-footer {
@@ -272,15 +258,4 @@ a:hover {
   text-align: center;
   color: var(--text-muted);
   font-size: 14px;
-}
-
-@media (max-width: 600px) {
-  .app-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .app-meta {
-    text-align: center;
-  }
 }
