@@ -27,5 +27,6 @@
     "New app icon and splash screen"
   ],
   "forceUpdateBelow": 0,
-  "releasedAt": ""
+  "releasedAt": "",
+  "notice": "Internal app: Login with a registered account is required. For credentials and authorization, contact support@tasti.id."
 }

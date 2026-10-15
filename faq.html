@@ -1,119 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FAQ - rainkidz App Catalog</title>
-  <meta name="description" content="Frequently asked questions about installing, updating, and verifying apps from the rainkidz catalog.">
-  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="0; url=/faq.html">
+<link rel="canonical" href="https://rainstudio.is-a.dev/faq.html">
+<title>FAQ — moved to Rainstudio</title>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">RK</span>
-        <span class="brand-name">rainkidz</span>
-      </a>
-      <nav class="header-nav">
-        <a class="btn btn-ghost" href="index.html">Catalog</a>
-        <a class="btn btn-ghost" href="https://github.com/rainkidz/app-download/releases" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container">
-        <h1>FAQ</h1>
-        <p class="hero-tagline">Everything you need to know about installing and updating apps here.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container faq-page">
-        <h2>Safety &amp; Trust</h2>
-        <div class="faq-list">
-          <details class="faq-item" open>
-            <summary>Are these apps safe to install?</summary>
-            <p>Yes. Every APK is built and released by the developer (rainkidz) and hosted on GitHub Releases — a platform with full audit logs. Each app page shows a <strong>SHA-256 fingerprint</strong>; after downloading you can verify the file matches what's published here.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Why does Play Protect show a warning?</summary>
-            <p>Google Play Protect flags <em>any</em> APK that isn't installed through the Play Store, including perfectly safe sideloaded apps. This is a generic warning, not a verdict on the app. Review the fingerprint on the app page, then tap <strong>Install anyway</strong> if you're comfortable.</p>
-          </details>
-          <details class="faq-item">
-            <summary>How do I verify a downloaded APK?</summary>
-            <p>Open the app's detail page, copy the SHA-256 fingerprint, then hash the file on your computer:</p>
-            <pre class="code-block">Windows:  (Get-FileHash app.apk -Algorithm SHA256).Hash
-macOS:    shasum -a 256 app.apk
-Linux:    sha256sum app.apk</pre>
-            <p>If the values match, the file is intact and authentic.</p>
-          </details>
-        </div>
-
-        <h2>Installation</h2>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>How do I install an APK?</summary>
-            <ol class="steps">
-              <li>Download the APK from the app page (tap the button or scan the QR code).</li>
-              <li>Open the downloaded file from your notification shade or file manager.</li>
-              <li>If Android blocks it, tap <strong>Settings</strong> and enable <strong>"Allow from this source"</strong> for your browser or file manager.</li>
-              <li>Tap <strong>Install</strong>.</li>
-            </ol>
-          </details>
-          <details class="faq-item">
-            <summary>What is "unknown sources"?</summary>
-            <p>Android only auto-installs apps from the Play Store by default. "Install from unknown sources" is a per-app permission that lets you install APKs you downloaded yourself — like browser downloads, email attachments, or files from GitHub. You grant it once per source app.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Do I need Google Play Services?</summary>
-            <p>No. All apps here run without Google Play Services — they're pure Android apps. They work on de-Googled devices too.</p>
-          </details>
-        </div>
-
-        <h2>Updates</h2>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>How do updates work?</summary>
-            <p>Each app checks for a new version on launch (via a small JSON file on this site). When a newer version exists, the app shows a dialog with the changelog and an <strong>Update</strong> button — tapping it downloads the APK automatically and Android prompts you to install it.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Why can't the Play Store update these apps?</summary>
-            <p>These apps are distributed directly (sideloaded), so the Play Store has no record of them. That's why each app includes its own update checker. Some apps may also be available on the Play Store separately — check the app page for a Google Play link if one exists.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Where can I find older versions?</summary>
-            <p>Each app's detail page has an <strong>Old versions</strong> table with every past release. Older builds are also always available on <a href="https://github.com/rainkidz/app-download/releases" target="_blank" rel="noopener">GitHub Releases</a>. Only sideload an older version if you know what you're doing — the app may prompt you to update again.</p>
-          </details>
-        </div>
-
-        <h2>Technical</h2>
-        <div class="faq-list">
-          <details class="faq-item">
-            <summary>What Android version do I need?</summary>
-            <p>Android 7.0 (API 24) or newer. Most phones from 2017 onward are supported.</p>
-          </details>
-          <details class="faq-item">
-            <summary>How big are the downloads?</summary>
-            <p>Each app page shows the exact APK size before you download. Nothing is hidden — the size shown is the file you get.</p>
-          </details>
-          <details class="faq-item">
-            <summary>Is there a QR code to download on my phone?</summary>
-            <p>Yes. Open an app's detail page on your computer, tap <strong>Show QR</strong>, and scan it with your phone's camera to download directly on the device.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year">2026</span> rainkidz · <a href="https://github.com/rainkidz" target="_blank" rel="noopener">GitHub</a> · <a href="index.html">Catalog</a></p>
-    </div>
-  </footer>
-
-  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+<p>The FAQ has moved to <a href="/faq.html">Rainstudio FAQ</a>.</p>
+<script>location.replace("/faq.html");</script>
 </body>
 </html>
